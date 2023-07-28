@@ -1,6 +1,6 @@
 ﻿using MEC;
 
-namespace DoorCorrode.Objects
+namespace DoorCorrode.Types
 {
     public class TimeValue
     {

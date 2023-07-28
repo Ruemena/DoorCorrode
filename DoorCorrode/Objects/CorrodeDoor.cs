@@ -4,6 +4,8 @@ using UnityEngine;
 using DoorCorrode;
 using Exiled.API.Features.Roles;
 using Interactables.Interobjects.DoorUtils;
+using Exiled.API.Extensions;
+using DoorCorrode.Types;
 
 namespace DoorCorrode.Objects
 {
@@ -21,13 +23,11 @@ namespace DoorCorrode.Objects
                     {
                         return;
                     }
-                    if (role.Vigor >= (Instance.Config.VigorCost * 0.01f))
-                    {
-                        role.Vigor -= Instance.Config.VigorCost * 0.01f;
-                    } else
+                    if (role.Vigor < (Instance.Config.VigorCost * 0.01f))
                     {
                         return;
                     }
+                    role.Vigor -= Instance.Config.VigorCost * 0.01f;
                     cD.CreateTV(door);
 
                     Larry larryPlayer = Instance.larries.GetTV(player);
@@ -35,12 +35,14 @@ namespace DoorCorrode.Objects
 
                     Hint hint = new(Instance.Config.CooldownHint, Instance.Config.Cooldown);
                     player.ShowHint(hint);
+
+
                     if (!door.IsCheckpoint && door.Type != Exiled.API.Enums.DoorType.Scp106Primary) Timing.CallDelayed(0.2f, () => door.PlaySound(Exiled.API.Enums.DoorBeepType.InteractionDenied));
-                    CoroutineHandle doorCH = Timing.RunCoroutine(Coroutines.CorrodeDoor(door, Instance.Config.Length, Instance));
+                    CoroutineHandle doorCH = Timing.RunCoroutine(Coroutines.LockUnlockDoor(door, Instance.Config.Length, Instance));
                     cD.GetTV(door).CoroutineHandle = doorCH;
 
                     CoroutineHandle larryCH = Timing.RunCoroutine(Coroutines.LarryCooldown(larryPlayer, Instance.Config.Cooldown));
-                    Instance.larries.GetTV(player).CoroutineHandle = larryCH;
+                    larryPlayer.CoroutineHandle = larryCH;
                 }
             }
         }

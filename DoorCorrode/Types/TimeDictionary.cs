@@ -1,9 +1,10 @@
 ﻿using MEC;
+using YamlDotNet.Core.Tokens;
 
 // dictionary that allows for coroutines to be handled safely 
 
 
-namespace DoorCorrode.Objects
+namespace DoorCorrode.Types
 {
     public class TimeDictionary<Key, Value>
     where Value : TimeValue, new()

@@ -19,7 +19,7 @@
     <Reference Include="Exiled.Events"><HintPath>lib/Exiled.Events.dll</HintPath></Reference>
     <Reference Include="Mirror"><HintPath>lib/Mirror.dll</HintPath></Reference>
 	<Reference Include="Mono.Posix"><HintPath>lib/Mono.Posix.dll</HintPath></Reference>
-    <Reference Include="System.Net.Http"/>
+    <Reference Include="System.Net.Http" />
     <Reference Include="UnityEngine"><HintPath>lib/UnityEngine.dll</HintPath></Reference>
 	<Reference Include="UnityEngine.CoreModule"><HintPath>lib/UnityEngine.CoreModule.dll</HintPath></Reference>
 	<Reference Include="UnityEngine.PhysicsModule"><HintPath>lib/UnityEngine.PhysicsModule.dll</HintPath></Reference>

@@ -1,4 +1,5 @@
-﻿using Exiled.API.Features;
+﻿using DoorCorrode.Types;
+using Exiled.API.Features;
 using MEC;
 using PlayerRoles;
 
@@ -6,7 +7,7 @@ namespace DoorCorrode.Objects
 {
     public static class Coroutines
     {
-        public static IEnumerator<float> CorrodeDoor(Door door, float time, DoorCorrode Instance)
+        public static IEnumerator<float> LockUnlockDoor(Door door, float time, DoorCorrode Instance)
         {
             Log.Debug("Locking door");
             door.Lock(time, Exiled.API.Enums.DoorLockType.AdminCommand);
