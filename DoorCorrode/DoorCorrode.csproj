@@ -13,7 +13,7 @@
 	</ItemGroup>
 	
   <ItemGroup>
-	<Reference Include="Assembly-CSharp-firstpass"><HintPath>lib/Assembly-CSharp-firstpass.dll</HintPath></Reference>
+    <Reference Include="Assembly-CSharp-firstpass"><HintPath>lib/Assembly-CSharp-firstpass.dll</HintPath></Reference>
     <Reference Include="Assembly-CSharp"><HintPath>lib/Assembly-CSharp.dll</HintPath></Reference>
     <Reference Include="Exiled.API"><HintPath>lib/Exiled.API.dll</HintPath></Reference>
     <Reference Include="Exiled.Events"><HintPath>lib/Exiled.Events.dll</HintPath></Reference>
