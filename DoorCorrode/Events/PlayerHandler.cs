@@ -23,6 +23,7 @@ namespace Exiled.DoorCorrodeEvents
             {  HotkeyButton.Keycard,         ItemType.KeycardJanitor  },
             {  HotkeyButton.Grenade,         ItemType.GrenadeFlash    }
         };
+
         public void OnChangingRole(ChangingRoleEventArgs ev)
         {
 
@@ -63,13 +64,13 @@ namespace Exiled.DoorCorrodeEvents
                 Timing.RunCoroutine(Coroutines.GiveItemDelayed(ev.Player, HotkeyItems[Instance.Config.Hotkey], 1.5f), "GiveLarryItem");
             }
         }
+
         public void OnProcessingHotkey(ProcessingHotkeyEventArgs ev)
         {   
             if (ev.Hotkey == Instance.Config.Hotkey && ev.Player.Role == RoleTypeId.Scp106)
             {
                 if (Instance.larries.ContainsTV(ev.Player) && !Instance.larries.GetTV(ev.Player).Cooldown)
                 {
-                    Log.Debug("Toggling corrosion");
                     Instance.larries.GetTV(ev.Player).ToggleCorrode();
                     Hint hint = new(Instance.Config.ActiveHint, 999999);
 
@@ -84,14 +85,15 @@ namespace Exiled.DoorCorrodeEvents
                 ev.IsAllowed = false;
             }
         }
+
         public void OnInteractingDoor(InteractingDoorEventArgs ev)
         {
-            Log.Debug("Interact intercepted");
             if (ev.Door.IsLocked && ev.Player.IsScp && Instance.corrodedDoors.GetTV(ev.Door) != null)
             {
                 ev.IsAllowed = true;
             }
         }
+
         public void OnDying(DyingEventArgs ev)
         {
             if (ev.Player.Role == RoleTypeId.Scp106)
@@ -99,6 +101,7 @@ namespace Exiled.DoorCorrodeEvents
                 ev.ItemsToDrop.Clear();
             }
         }
+
         public void Deny106<T>(T ev)
         where T : IDeniableEvent, IPlayerEvent
         {

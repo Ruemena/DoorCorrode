@@ -9,14 +9,12 @@ namespace DoorCorrode.Objects
     {
         public static IEnumerator<float> LockUnlockDoor(Door door, float time, DoorCorrode Instance)
         {
-            Log.Debug("Locking door");
             door.Lock(time, Exiled.API.Enums.DoorLockType.AdminCommand);
             yield return Timing.WaitForSeconds(time);
             Instance.corrodedDoors.RemoveTV(door);
         }
         public static IEnumerator<float> LarryCooldown(Larry larry, float time)
         {
-            larry.IsActivelyCorroding = false;
             larry.Cooldown = true;
             yield return Timing.WaitForSeconds(time);
             larry.Cooldown = false;

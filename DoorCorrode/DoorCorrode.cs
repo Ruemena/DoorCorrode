@@ -1,10 +1,10 @@
 ﻿namespace DoorCorrode
 {
-    using Objects;
     using Exiled.API.Enums;
     using Exiled.API.Features;
     using Exiled.DoorCorrodeEvents;
-
+    using Types;
+        
     public class DoorCorrode : Plugin<Config>
     {
         private PlayerHandler playerHandler;
@@ -36,9 +36,9 @@
             Exiled.Events.Handlers.Player.ProcessingHotkey += playerHandler.OnProcessingHotkey;
             Exiled.Events.Handlers.Player.InteractingDoor += playerHandler.OnInteractingDoor;
             Exiled.Events.Handlers.Player.ChangingRole += playerHandler.OnChangingRole;
-            // for making the item given not usable
-            Exiled.Events.Handlers.Player.Dying += playerHandler.OnDying;
 
+            Exiled.Events.Handlers.Player.Dying += playerHandler.OnDying;
+            // for making the item given not usable
             Exiled.Events.Handlers.Player.ChangingItem += playerHandler.Deny106;
             Exiled.Events.Handlers.Player.DroppingItem += playerHandler.Deny106;
             Exiled.Events.Handlers.Player.UsingItem += playerHandler.Deny106;

@@ -13,6 +13,7 @@ namespace Exiled.DoorCorrodeEvents
         {
             Instance.corrodedDoors.ClearTVs();
             Instance.larries.ClearTVs();
+
             Timing.KillCoroutines("GiveLarryItem");
         }
     }
