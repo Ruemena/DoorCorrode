@@ -37,7 +37,6 @@ namespace DoorCorrode.Objects
 
             if (closestDoor.Type == DoorType.LightContainmentDoor && Door.Get(closestDoor.Transform.parent?.gameObject) != null) {
                 Door higherDoor = Door.Get(closestDoor.Transform.parent?.parent?.gameObject);
-                Log.Debug(higherDoor.Type);
                 if (higherDoor.Type is DoorType.Scp106Primary) return higherDoor;
             }
 

@@ -88,7 +88,7 @@ namespace Exiled.DoorCorrodeEvents
 
         public void OnInteractingDoor(InteractingDoorEventArgs ev)
         {
-            if (ev.Door.IsLocked && ev.Player.IsScp && Instance.corrodedDoors.GetTV(ev.Door) != null)
+            if (ev.Door.IsLocked && ev.Player.IsScp && Instance.corrodedDoors.ContainsTV(ev.Door))
             {
                 ev.IsAllowed = true;
             }
